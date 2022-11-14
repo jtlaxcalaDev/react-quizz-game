@@ -1,0 +1,4 @@
+export const GET_QUESTIONS = "GET_QUESTIONS"
+export const GET_QUESTION = "GET_QUESTION"
+export const SET_LOADING = "RESET_LOADING"
+export const SET_ERROR = "RESET_ERROR"
