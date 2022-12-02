@@ -1,0 +1,29 @@
+.answer {
+  height: 60px;
+  padding: 16px;
+}
+
+.answer-selection:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.selected-answer {
+  background-color: #f8f2a1;
+}
+
+.unselected-answer {
+  background-color: #f1f1f1;
+}
+
+.correct-answer {
+  background-color: green;
+}
+
+.correct-answer-msg {
+  color: green;
+}
+
+.incorrect-answer-msg {
+  color: red;
+}
