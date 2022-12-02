@@ -1,8 +1,8 @@
-import { IQuestionState } from "../../interfaces/Question";
+import { QuestionState } from "../../interfaces/Question";
 import { GET_QUESTIONS, SET_LOADING, SET_ERROR } from "../types";
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (state: IQuestionState, action: any): IQuestionState => {
+export default (state: QuestionState, action: any): QuestionState => {
   const { payload, type } = action;
 
   switch (type) {

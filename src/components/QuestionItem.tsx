@@ -1,26 +1,64 @@
-import { FC, useState } from "react"
-import { IOption,IQuestion } from "../interfaces/Question"
-import AnswersView from "./AnswersView"
-import './styles/QuestionItem.css'
+import { FC } from "react";
+import { Answer } from "../interfaces/Question";
+import "./styles/QuestionItem.css";
+import { ViewType } from "./Quiz";
 
-const QuestionItem: FC<Pick<IQuestion, 'question' | 'correct_answer' | 'options'>> = ( {question, correct_answer, options} ) => {
-  const [currentSelectedId, setCurrentSelectedId] = useState('')
+interface QuestionItemProps {
+  question: string;
+  correctAnswer: string;
+  selectedAnswer?: string;
+  answers: Answer[];
+  onSelectAnswer: (answerId: string) => void;
+  view: ViewType;
+}
 
-  function findCurrentOption(): IOption | string {
-    return (
-      options.find(option => {
-        return option.id === currentSelectedId;
-      }) || ''
-    );
-  }
-
+const QuestionItem: FC<QuestionItemProps> = ({
+  question,
+  correctAnswer,
+  selectedAnswer,
+  answers,
+  onSelectAnswer,
+  view,
+}) => {
   return (
     <>
       <h4 className="question">{decodeURIComponent(question)}</h4>
-      <AnswersView currentOption={findCurrentOption()} setCurrentSelectedId={setCurrentSelectedId} options={options} />
+      <div className="answers">
+        {answers.map(({ id, content }) => (
+          <div
+            className={getAnswerStyle(
+              content,
+              correctAnswer,
+              view,
+              selectedAnswer
+            )}
+            key={id}
+            onClick={() => onSelectAnswer(id)}
+          >
+            {content}
+          </div>
+        ))}
+      </div>
       <hr className="question-separator" />
     </>
-  )      
+  );
+};
+
+function getAnswerStyle(
+  answer: string,
+  correctAnswer: string,
+  view: ViewType,
+  selectedAnswer?: string
+) {
+  if (view === "PLAY") {
+    if (answer === correctAnswer) {
+      return "correct-answer";
+    } else {
+      return "answer";
+    }
+  } else {
+    return "correct-answer";
+  }
 }
 
-export default QuestionItem
+export default QuestionItem;

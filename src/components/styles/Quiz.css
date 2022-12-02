@@ -1,4 +1,9 @@
-.items-list-container {
+.error-msg {
+  color: #e0e1dd;
+  width: 16em;
+}
+
+.root-container {
   /*background-color: cadetblue;*/
   text-align: left;
   color: #293264;
@@ -16,10 +21,10 @@
   border: none;
   border-radius: 12px;
   background-color: #e07a5f;
-  color: #F5F7FB;
+  color: #f5f7fb;
   padding: 1em 2em;
   cursor: pointer;
-  transition: 0.4s; 
+  transition: 0.4s;
 }
 
 .btn-check-answers:hover {
@@ -41,6 +46,7 @@
   height: 80px;
   margin: 10px auto;
 }
+
 .lds-ripple div {
   position: absolute;
   border: 4px solid #e07a5f;

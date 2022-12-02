@@ -1,19 +1,14 @@
 import { createContext, Dispatch, SetStateAction } from "react";
-import { IOption, IQuestion } from "../../interfaces/Question";
+import { Answer, Question } from "../../interfaces/Question";
 
 interface QuestionContextProps {
-  questions: IQuestion[]
-  loading: boolean
-  setLoading: any
-  error: string | null
-  corrects: number
-  setCorrects: any
-  validateAnswers: boolean,
-  setValidateAnswers: any,
-  selecteds: IOption[],
-  setSelecteds: Dispatch<SetStateAction<IOption[]>>
+  questions: Question[];
+  loading: boolean;
+  error: string | null;
+  setLoading: Dispatch<SetStateAction<boolean>>;
+  setQuestions: Dispatch<SetStateAction<Question[]>>;
 }
 
-const QuestionContext = createContext({} as QuestionContextProps)
+const QuestionContext = createContext({} as QuestionContextProps);
 
 export default QuestionContext;

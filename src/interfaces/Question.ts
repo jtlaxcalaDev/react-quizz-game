@@ -1,20 +1,19 @@
-import { Dispatch, SetStateAction } from "react"
-
-export interface IQuestion {
-  id: string
-  question: string
-  correct_answer: string
-  //incorrect_answers: string[]
-  options: IOption[]
+export interface Question {
+  id: string;
+  question: string;
+  correctAnswer: string;
+  selectedAnswer?: string;
+  answers: Answer[];
 }
 
-export interface IQuestionState {
-  questions: IQuestion[]
-  loading: boolean
-  error: string
+export interface Answer {
+  id: string;
+  content: string;
 }
 
-export interface IOption {
-  id: string
-  option: string
+
+export interface QuestionState {
+  questions: Question[];
+  loading: boolean;
+  error: string;
 }

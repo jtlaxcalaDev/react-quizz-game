@@ -1,13 +1,8 @@
-import Home from './components/Home'
-
-import './App.css'
+import "./App.css";
+import { WelcomeView } from "./alebrije/welcome-view";
 
 function App() {
-  return (
-    <div className="App">
-      <Home />
-    </div>
-  )
+  return <WelcomeView />;
 }
 
-export default App
+export default App;
